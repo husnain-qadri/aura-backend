@@ -1,0 +1,23 @@
+runtime: custom
+env: flex
+
+env_variables:
+  GROQ_API_KEY: "CHANGE_ME"
+  FLASK_DEBUG: "false"
+
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 4
+
+resources:
+  cpu: 2
+  memory_gb: 4
+  disk_size_gb: 20
+
+liveness_check:
+  path: /api/health
+  check_interval_sec: 30
+
+readiness_check:
+  path: /api/health
+  check_interval_sec: 10
